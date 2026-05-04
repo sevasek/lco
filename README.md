@@ -107,12 +107,39 @@ Or follow the original [Installation Guide](https://raw.githubusercontent.com/co
 
 After installing the plugin, apply your low-cost configuration:
 
+#### Option 1: Clone this fork
+
 ```bash
-# Clone this fork (if you haven't already)
+# Clone this fork
 git clone https://github.com/sevasek/lco.git
 
 # Run the LCO installer
 ./lco/scripts/install.sh
+```
+
+#### Option 2: Local installation
+
+If you already have this repo locally:
+
+```bash
+# Navigate to this repo, then run:
+./lco/scripts/install.sh
+```
+
+Or specify the LCO directory explicitly:
+
+```bash
+LCO_DIR=/path/to/your/lco ./lco/scripts/install.sh
+```
+
+#### Option 3: Copy files manually
+
+```bash
+# Copy the config template to your OpenCode config directory
+cp lco/config/template.jsonc ~/.config/opencode/oh-my-openagent.jsonc
+
+# Backup your existing config first if needed
+cp ~/.config/opencode/oh-my-openagent.jsonc ~/.config/opencode/oh-my-openagent.jsonc.backup-$(date +%Y%m%d-%H%M%S)
 ```
 
 This will backup your existing config and install the LCO low-cost model configuration.
