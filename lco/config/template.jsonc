@@ -1,0 +1,107 @@
+{
+  // =============================================================================
+  // LCO: Low-Cost OpenCode Configuration
+  // =============================================================================
+  // A clean, consistent configuration for oh-my-opencode plugin
+  // configured for low-cost operation via OpenCode Go (Grok)
+  //
+  // Usage Strategy:
+  // - DeepSeek V4 Flash: 36x more requests, for routine tasks
+  // - Kimi K2.5: Complex/frontend work, 262K context
+  // - GLM-5: Deep reasoning (architecture, hard bugs)
+  // - MiniMax M2.7: Daily driver (balance of capability and limits)
+  //
+  // Installation: lco/scripts/install.sh
+  // =============================================================================
+
+  "$schema": "./src/config/schema/oh-my-opencode-config.ts",
+
+  // ---------------------------------------------------------------------------
+  // Categories: Task routing with optimized model selection
+  // ---------------------------------------------------------------------------
+  "categories": {
+    "quick": {
+      "model": "opencode-go/deepseek-v4-flash",
+      "fallback_models": ["opencode-go/qwen3.5-plus"]
+    },
+    "deep": {
+      "model": "opencode-go/kimi-k2.5",
+      "fallback_models": ["opencode-go/kimi-k2.6", "opencode-go/glm-5"]
+    },
+    "visual-engineering": {
+      "model": "opencode-go/kimi-k2.5"
+    },
+    "ultrabrain": {
+      "model": "opencode-go/glm-5",
+      "fallback_models": ["opencode-go/glm-5.1"]
+    },
+    "artistry": {
+      "model": "opencode-go/deepseek-v4-flash"
+    },
+    "writing": {
+      "model": "opencode-go/deepseek-v4-flash"
+    }
+  },
+
+  // ---------------------------------------------------------------------------
+  // Agents: Specialized team with low-cost model assignments
+  // ---------------------------------------------------------------------------
+  "agents": {
+    "sisyphus": {
+      "model": "opencode-go/kimi-k2.5"
+    },
+    "hephaestus": {
+      "model": "opencode-go/kimi-k2.5"
+    },
+    "librarian": {
+      "model": "opencode-go/deepseek-v4-flash"
+    },
+    "explore": {
+      "model": "opencode-go/deepseek-v4-flash"
+    },
+    "oracle": {
+      "model": "opencode-go/glm-5"
+    },
+    "atlas": {
+      "model": "opencode-go/minimax-m2.7"
+    },
+    "multimodal-looker": {
+      "model": "opencode-go/kimi-k2.5"
+    }
+  },
+
+  // ---------------------------------------------------------------------------
+  // Model Fallback: Global fallback chain for resilience
+  // ---------------------------------------------------------------------------
+  "model_fallback": {
+    "fallback_models": [
+      "opencode-go/deepseek-v4-flash",
+      "opencode-go/minimax-m2.7",
+      "opencode-go/kimi-k2.5",
+      "opencode-go/glm-5",
+      "opencode-go/big-pickle"
+    ]
+  },
+
+  // ---------------------------------------------------------------------------
+  // Disabled premium features (keep for future if needed)
+  // ---------------------------------------------------------------------------
+  "disabled_agents": [],
+  "disabled_hooks": [],
+  "disabled_skills": [],
+  "disabled_commands": [],
+  "disabled_tools": [],
+  "disabled_mcps": [],
+
+  // ---------------------------------------------------------------------------
+  // Feature configurations (defaults preserved)
+  // ---------------------------------------------------------------------------
+  "ralph_loop": {
+    "enabled": true
+  },
+  "background_task": {
+    "enabled": true,
+    "max_concurrent_per_model": 5,
+    "max_concurrent_per_provider": 5
+  }
+}

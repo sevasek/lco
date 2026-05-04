@@ -327,6 +327,62 @@ See full [Features Documentation](docs/reference/features.md).
 - **Session Recovery**: Automatic recovery from session errors, context window limits, and API failures
 - **Model Setup**: Agent-model matching is built into the [Installation Guide](docs/guide/installation.md#step-5-understand-your-model-setup)
 
+## Low-Cost Configuration
+
+For users with budget constraints, oh-my-opencode supports a **low-cost mode** using OpenCode Go's Grok models. This provides significant cost savings with minimal performance trade-off.
+
+### Usage Limits (OpenCode Go)
+
+| Window | Limit | Notes |
+|--------|-------|-------|
+| Every 5 hours | $12 USD | ~880-31,650 requests depending on model |
+| Weekly | $30 USD | ~2,100-75,000 requests |
+| Monthly | $60 USD | ~9,000-315,000+ requests |
+
+**Key insight:** Cheaper models like DeepSeek V4 Flash provide **36x more requests** than expensive models like GLM-5.1 for the same budget.
+
+### Model Recommendations
+
+| Model | Use Case | Requests/5hr |
+|-------|----------|--------------|
+| DeepSeek V4 Flash | Routine tasks, refactoring, tests | ~31,650 |
+| MiniMax M2.7 | Daily driver, fast coding | ~3,400 |
+| Kimi K2.5 | Complex work, frontend, long context | ~1,850 |
+| GLM-5 | Deep reasoning, architecture | ~1,150 |
+
+### Quick Setup
+
+```bash
+# Install the low-cost configuration
+./script/install-low-cost-config.sh
+```
+
+See [`research/LOW-COST-MODELS.md`](research/LOW-COST-MODELS.md) for full model analysis and configuration details.
+
+---
+
+## Customization & Adaptation
+
+The plugin is designed to be customized for specific workflows and cost constraints.
+
+### Research & Planning Documents
+
+| Document | Purpose |
+|----------|---------|
+| [`research/ADAPTATION.md`](research/ADAPTATION.md) | Priority plan for adapting the plugin |
+| [`research/LOW-COST-MODELS.md`](research/LOW-COST-MODELS.md) | Model analysis for budget-conscious setups |
+| [`research/ANALYSIS.md`](research/ANALYSIS.md) | SWOT analysis of the plugin |
+| [`research/DESIGN.md`](research/DESIGN.md) | Architecture and design overview |
+| [`research/INNOVATE.md`](research/INNOVATE.md) | Unique innovations documented |
+
+### Installation Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `script/install-low-cost-config.sh` | Install low-cost configuration (with backup) |
+
+---
+
 ## Configuration
 
 Opinionated defaults, adjustable if you insist.
