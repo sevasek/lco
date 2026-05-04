@@ -92,28 +92,32 @@ Install OmO. Type `ultrawork`. Done.
 
 ## Installation
 
-### For Humans
+### Base Plugin Installation
 
-Copy and paste this prompt to your LLM agent (Claude Code, AmpCode, Cursor, etc.):
-
-```
-Install and configure oh-my-opencode by following the instructions here:
-https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/refs/heads/dev/docs/guide/installation.md
-```
-
-Or read the [Installation Guide](docs/guide/installation.md), but seriously, let an agent do it. Humans fat-finger configs.
-
-### For LLM Agents
-
-Fetch the installation guide and follow it:
+This is a fork of [oh-my-opencode](https://github.com/code-yeongyu/oh-my-openagent) providing a low-cost configuration wrapper (LCO). Install the base plugin first:
 
 ```bash
-curl -s https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/refs/heads/dev/docs/guide/installation.md
+# Install oh-my-opencode plugin from the original repo
+npm install -g oh-my-opencode
 ```
 
-**Note**: Use the published package and binary name `oh-my-opencode`. Inside `opencode.json`, the compatibility layer now prefers the plugin entry `oh-my-openagent`, while legacy `oh-my-opencode` entries still load with a warning. Plugin config files still commonly use `oh-my-opencode.json` or `oh-my-opencode.jsonc`, and both legacy and renamed basenames are recognized during the transition.
+Or follow the original [Installation Guide](https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/refs/heads/dev/docs/guide/installation.md).
 
-Anonymous telemetry is enabled by default to track active installations (DAU/WAU/MAU). A single event is sent at most once per UTC day per machine using a hashed installation identifier, never the raw hostname, and PostHog person profiles are not created. Disable with `OMO_SEND_ANONYMOUS_TELEMETRY=0` or `OMO_DISABLE_POSTHOG=1`. See [Privacy Policy](docs/legal/privacy-policy.md) and [Terms of Service](docs/legal/terms-of-service.md).
+### Then: Apply LCO Low-Cost Configuration
+
+After installing the plugin, apply your low-cost configuration:
+
+```bash
+# Clone this fork (if you haven't already)
+git clone https://github.com/sevasek/lco.git
+
+# Run the LCO installer
+./lco/scripts/install.sh
+```
+
+This will backup your existing config and install the LCO low-cost model configuration.
+
+See [`lco/README.md`](lco/README.md) for full documentation on the LCO wrapper.
 
 ---
 
