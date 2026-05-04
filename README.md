@@ -354,10 +354,10 @@ For users with budget constraints, oh-my-opencode supports a **low-cost mode** u
 
 ```bash
 # Install the low-cost configuration
-./script/install-low-cost-config.sh
+./lco/scripts/install.sh
 ```
 
-See [`research/LOW-COST-MODELS.md`](research/LOW-COST-MODELS.md) for full model analysis and configuration details.
+See [`lco/README.md`](lco/README.md) for full wrapper documentation.
 
 ---
 
@@ -379,7 +379,9 @@ The plugin is designed to be customized for specific workflows and cost constrai
 
 | Script | Purpose |
 |--------|---------|
-| `script/install-low-cost-config.sh` | Install low-cost configuration (with backup) |
+| `lco/scripts/install.sh` | Install low-cost configuration (with backup) |
+| `lco/scripts/backup.sh` | Backup current config |
+| `lco/scripts/switch.sh` | Switch between config variants |
 
 ---
 
